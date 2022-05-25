@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres
+    container_name: postgres.local
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  liquibase:
+    image: liquibase/liquibase
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    command: --url jdbc:postgresql://postgres:5432/db --changeLogFile db_changelog.yaml --username postgres --password password update
+    volumes:
+      - ./liquibase-changelog:/liquibase/changelog
+
+  redis:
+    image: "redis"
+    container_name: redis.local
+    ports:
+      - "6379:6379"
