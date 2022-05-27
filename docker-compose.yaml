@@ -23,8 +23,6 @@ services:
       --changeLogFile db_changelog.yaml
       --username postgres
       --password password
-      --diff-types=tables,functions,data,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,sequences
-      --liquibaseProLicenseKey ABwwGgQU/4Z5QKME3iLl6dTwWVeeUY5DWyECAgQAXBHkanihlrYoYZSqxdbzeGd3U4NNFP56g7CLApHTA4u5kGmZt8dfOQBw3JEgiN0MyURrIswzZuMBbhXKHa/cjM27Fweo3lPyrrdUdOM77weKk8uPoxa+6J0hFNbS1ddpssEg07bw4pORMB7ecFv1XLf0019zbo7/v/MDLRLEPES0/+cD4RDxQvZa5JEUZoenEclLrtxu8ge4ilL1RVrMFtY9tKI5WMWBf8K9QWL0zeaKfRZB3PTPwWaESgEOnPBq2VB7Wz5QIxkoyXAdPtxTzEv0fi48crz7A8D1kWSL88xb+pWyB6pwTI0JHHrwkFdfeF9dq7KhpIqVtzb4++F0NYLH8peKG/9ZPKV7Yv/UQfGggmwQ9QaYkbkSFoxyAXuGBVI5bUfcj9NyUD9jOJ7vHDvcykW4xqHoZJYr7fsNrhobdmmOrJhUACI5hKwuO07KswT7iOJs3RI/tJLGpY39hQ/bUxj1iw06OwzOq6lhg+GgdGV7+3XoECUwVWB9yrCR9gKCcH58+JEJz+3rGjwrlO19JQapsEettSixCQJJQJcEajLWCK0+CvPGBsnna+xHBpkkt0IiMYBARbxjt7gujICGO81Gx1dmg7hsF+ooP8EMPJ1WODwQJQueOOWhAUuickyhZ5MGxFy7Vgf8kpmCgH3ZsO/YiW8t
       update
     volumes:
       - ./liquibase-changelog:/liquibase/changelog
