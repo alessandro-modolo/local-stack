@@ -16,21 +16,23 @@ docker-compose up -d
 Wait a few seconds, maybe have a sip of 🍺...ok now you have your redis server and a postgres DB fully initialized
 with the table required by the foundation
 
-## Connection references
+## Usefull info
 ### Redis
-
-| host      | port | connection string      |
+| host      | port | connection url         |
 |-----------|------|------------------------|
 | localhost | 6379 | redis://localhost:6379 |
 
 
 ### Postgres
-
-
 | jdbc url                            | user     | password |
 |-------------------------------------|----------|----------|
 | jdbc:postgresql://localhost:5432/db | postgres | password |
 
+### Credentials
+| username | password | company |
+|----------|----------|---------|
+| admin    | password | admin   |
+| admin    | password | company |
 
 ## How to stop, restart and destroy
 Of you don't want to destroy everything and start from scratch every time, you can simply stop the services using

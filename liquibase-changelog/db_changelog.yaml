@@ -240,7 +240,73 @@ databaseChangeLog:
                   value: admin
               - column:
                   name: ausepwd
-                  value: geocall
+                  value: password
+              - column:
+                  name: ausepwdalg
+                  value: NONE
+              - column:
+                  name: ausestartdate
+                  valueDate: 1800-01-01T00:00:00
+              - column:
+                  name: auseenddate
+                  valueDate: 2999-01-01T00:00:00
+              - column:
+                  name: auselanguage
+              - column:
+                  name: ausetheme
+              - column:
+                  name: auseisoptionnotallowed
+                  value: '0'
+              - column:
+                  name: ausepwdexpirationdate
+              - column:
+                  name: auselastpasswordupdate
+              - column:
+                  name: ausefailedaccess
+              - column:
+                  name: auselastaccessdate
+              - column:
+                  name: auseunlockdate
+              - column:
+                  name: ausegender
+              - column:
+                  name: datastamp
+              - column:
+                  name: login
+              - column:
+                  name: action
+              - column:
+                  name: auseaccessiblemode
+            tableName: auser
+        - insert:
+            columns:
+              - column:
+                  name: auseid
+                  valueNumeric: !!float '1'
+              - column:
+                  name: auseid_acom
+                  valueNumeric: !!float '1'
+              - column:
+                  name: auseid_tuse
+                  valueNumeric: !!float '1'
+              - column:
+                  name: ausesurname
+                  value: admin
+              - column:
+                  name: ausename
+                  value: admin
+              - column:
+                  name: ausetaxcode
+              - column:
+                  name: ausebirthdate
+              - column:
+                  name: auseemail
+              - column:
+                  name: auseusername
+                  value: admin
+              - column:
+                  name: ausepwd
+                  value: password
               - column:
                   name: ausepwdalg
                   value: NONE
@@ -924,6 +990,42 @@ databaseChangeLog:
               - column:
                   name: tuseiscompanyadmin
                   value: '0'
+            tableName: tuser
+        - insert:
+            columns:
+              - column:
+                  name: tuseid
+                  valueNumeric: !!float '1'
+              - column:
+                  name: tuseid_acom
+                  valueNumeric: !!float '1'
+              - column:
+                  name: tusedescription
+                  value: admin
+              - column:
+                  name: tuseordering
+                  valueNumeric: !!float '1'
+              - column:
+                  name: tuseisactive
+                  value: '1'
+              - column:
+                  name: tusecode
+              - column:
+                  name: tusemaxinactiveinterval
+              - column:
+                  name: tusersauth
+              - column:
+                  name: tuseissuper
+                  value: '1'
+              - column:
+                  name: datastamp
+              - column:
+                  name: login
+              - column:
+                  name: action
+              - column:
+                  name: tuseiscompanyadmin
+                  value: '1'
             tableName: tuser
   - changeSet:
       id: 1653551256807-21
@@ -2147,6 +2249,32 @@ databaseChangeLog:
               - column:
                   name: action
             tableName: acompany
+        - insert:
+            columns:
+              - column:
+                  name: acomid
+                  valueNumeric: !!float '1'
+              - column:
+                  name: acomdescription
+                  value: admin
+              - column:
+                  name: acomcompanyname
+                  value: company
+              - column:
+                  name: acomlogin
+                  value: company
+              - column:
+                  name: acomisactive
+                  value: '1'
+              - column:
+                  name: acompackage
+              - column:
+                  name: datastamp
+              - column:
+                  name: login
+              - column:
+                  name: action
+            tableName: acompany
   - changeSet:
       id: 1653551256807-87
       author: alessandro.modolo (generated)
@@ -2541,6 +2669,66 @@ databaseChangeLog:
               - column:
                   name: autfid_tuse
                   valueNumeric: !!float '0'
+              - column:
+                  name: autfname
+                  value: geocall.amministrazione.gestioneutente
+              - column:
+                  name: datastamp
+              - column:
+                  name: login
+              - column:
+                  name: action
+            tableName: ausertypefunction
+        - insert:
+            columns:
+              - column:
+                  name: autfid_tuse
+                  valueNumeric: !!float '1'
+              - column:
+                  name: autfname
+                  value: modulobase.utenti.visita
+              - column:
+                  name: datastamp
+              - column:
+                  name: login
+              - column:
+                  name: action
+            tableName: ausertypefunction
+        - insert:
+            columns:
+              - column:
+                  name: autfid_tuse
+                  valueNumeric: !!float '1'
+              - column:
+                  name: autfname
+                  value: modulobase.tabelletipi.visita
+              - column:
+                  name: datastamp
+              - column:
+                  name: login
+              - column:
+                  name: action
+            tableName: ausertypefunction
+        - insert:
+            columns:
+              - column:
+                  name: autfid_tuse
+                  valueNumeric: !!float '1'
+              - column:
+                  name: autfname
+                  value: modulobase.anagrafichebase.visita
+              - column:
+                  name: datastamp
+              - column:
+                  name: login
+              - column:
+                  name: action
+            tableName: ausertypefunction
+        - insert:
+            columns:
+              - column:
+                  name: autfid_tuse
+                  valueNumeric: !!float '1'
               - column:
                   name: autfname
                   value: geocall.amministrazione.gestioneutente
