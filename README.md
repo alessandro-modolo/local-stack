@@ -27,7 +27,6 @@ with the table required by the foundation
 ### Credentials
 | username | password | company |
 |----------|----------|---------|
-| admin    | password | admin   |
 | admin    | password | company |
 
 ## How to stop, restart and destroy
