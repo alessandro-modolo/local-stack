@@ -35,7 +35,7 @@ with the table required by the foundation
 | admin    | password | company |
 
 ## How to stop, restart and destroy
-Of you don't want to destroy everything and start from scratch every time, you can simply stop the services using
+If you don't want to destroy everything and start from scratch every time, you can simply stop the services using
 ```
 docker-compose stop
 ```
