@@ -10,7 +10,7 @@ services:
       POSTGRES_DB: db
       POSTGRES_PASSWORD: password
     volumes:
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./db_setup:/docker-entrypoint-initdb.d
 
   liquibase:
     image: liquibase/liquibase
@@ -20,12 +20,12 @@ services:
       - postgres
     command:
       --url jdbc:postgresql://postgres:5432/db
-      --changeLogFile db_changelog.yaml
+      --changeLogFile db.changelog-root.yaml
       --username postgres
       --password password
       update
     volumes:
-      - ./liquibase-changelog:/liquibase/changelog
+      - ./changelog:/liquibase/changelog
 
   redis:
     image: "redis"
