@@ -16,7 +16,7 @@ docker-compose up -d
 Wait a few seconds, maybe have a sip of 🍺...ok now you have your redis server and a postgres DB fully initialized
 with the table required by the foundation
 
-## Usefull info
+## Useful info
 ### Redis
 | host      | port | connection url         |
 |-----------|------|------------------------|
@@ -49,3 +49,23 @@ If you have enough and wants to remove all that stuffs, all you have to do is ru
 ```
 docker-compose down
 ```
+
+## How to fetch database changes
+If you have a new database, and you have never fetched its DDL before,
+you should generate a new changelog, by running the command
+
+```
+sh ./generate-changelog.sh
+```
+This will produce a file, named `db.changelog-<todayDate>.yaml` inside 
+the changelog folder. This file will contain all the tables, constraints, indexes, etc.,
+defined in the database that you will define during the script's execution.
+
+If you have generates a changelog yet, you can use fetch the changes with a database by running the command
+```
+sh ./diff-changelog.sh
+```
+This will produce a file, named `db.changelog-<todayDate>.yaml`, inside the changelog folder,
+containing only the missing changes.
+
+> both commands require [Liquibase CLI](https://www.liquibase.org/download) 
