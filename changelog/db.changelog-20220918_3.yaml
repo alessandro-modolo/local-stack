@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1663536335669-1
+      author: alessandro.modolo (generated)
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: auteaccessiblemode
+                  type: bpchar(1)
+            tableName: autenti
+  - changeSet:
+      id: 1663536335669-2
+      author: alessandro.modolo (generated)
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: alivpkg
+                  value: geocall.base
+              - column:
+                  name: alivmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alivmin
+                  valueNumeric: !!float '3'
+              - column:
+                  name: alivpatch
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alivseq
+                  value: '20220118'
+              - column:
+                  name: alivdata
+                  valueDate: 2022-09-18T11:09:14.329718
+            tableName: alivelli
+
