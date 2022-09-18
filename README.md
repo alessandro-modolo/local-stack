@@ -2,7 +2,7 @@
 
 Local stack created with docker compose that helps to get up and running in no time
 
-> DB changelog has been generated starting from the version `10.0.0` of the foundation
+> DB changelog has been generated starting from the version `9.1-ita` of the foundation
 
 ## How to run it
 Docker compose is required. If you haven't installed it yet, please refer to the 
@@ -13,15 +13,10 @@ Open a shell within the root of this project and run
 docker-compose up -d
 ```
 
-Wait a few seconds, maybe have a sip of 🍺...ok now you have your redis server and a postgres DB fully initialized
+Wait a few seconds, maybe have a sip of 🍺...ok now you have your postgres DB fully initialized
 with the table required by the foundation
 
 ## Useful info
-### Redis
-| host      | port | connection url         |
-|-----------|------|------------------------|
-| localhost | 6379 | redis://localhost:6379 |
-
 
 ### Postgres
 | jdbc url                            | user     | password |

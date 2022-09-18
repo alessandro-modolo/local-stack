@@ -26,9 +26,3 @@ services:
       update
     volumes:
       - ./changelog:/liquibase/changelog
-
-  redis:
-    image: "redis"
-    container_name: redis.local
-    ports:
-      - "6379:6379"
