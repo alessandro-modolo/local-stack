@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db.changelog-20220918_1.yaml
   - include:
       file: db.changelog-20220918_2.yaml
+  - include:
+      file: db.changelog-20220918_3.yaml
