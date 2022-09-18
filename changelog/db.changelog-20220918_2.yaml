@@ -1,0 +1,294 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1663534672766-1
+      author: alessandro.modolo (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdatalog_pkey
+                  name: sdloid
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: sdloauthor
+                  type: numeric(10)
+              - column:
+                  name: sdloobjectid
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: sdlocompany
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: sdlodate
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: sdlotype
+                  type: VARCHAR(128)
+              - column:
+                  name: sdlodata
+                  type: TEXT
+              - column:
+                  name: datastamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: login
+                  type: numeric(10)
+              - column:
+                  name: action
+                  type: numeric(10)
+            tableName: sdatalog
+  - changeSet:
+      id: 1663534672766-2
+      author: alessandro.modolo (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: asecrets_pkey
+                  name: asecid
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecid_aazi
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecname
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecversionid
+                  type: VARCHAR(40)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecvalue
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecissuedate
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: datastamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: login
+                  type: numeric(10)
+              - column:
+                  name: action
+                  type: numeric(10)
+            tableName: asecrets
+  - changeSet:
+      id: 1663534672766-3
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: sdlotype
+              - column:
+                  name: sdlodate
+            indexName: idxsdlo01
+            tableName: sdatalog
+  - changeSet:
+      id: 1663534672766-4
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: sdlotype
+              - column:
+                  name: sdlocompany
+            indexName: idxsdlo02
+            tableName: sdatalog
+  - changeSet:
+      id: 1663534672766-5
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: sdlotype
+              - column:
+                  name: sdloobjectid
+            indexName: idxsdlo03
+            tableName: sdatalog
+  - changeSet:
+      id: 1663534672766-6
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: sdlotype
+            indexName: idxsdlo04
+            tableName: sdatalog
+  - changeSet:
+      id: 1663534672766-7
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: asecid_aazi
+              - column:
+                  name: asecname
+              - column:
+                  name: asecversionid
+            indexName: idxasec01
+            tableName: asecrets
+            unique: true
+  - changeSet:
+      id: 1663534672766-8
+      author: alessandro.modolo (generated)
+      changes:
+        - createSequence:
+            cacheSize: 1
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 1
+            sequenceName: sasecrets
+            startValue: 1
+  - changeSet:
+      id: 1663534672766-9
+      author: alessandro.modolo (generated)
+      changes:
+        - createSequence:
+            cacheSize: 1
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 1
+            sequenceName: ssdatalog
+            startValue: 1
+  - changeSet:
+      id: 1663534672766-10
+      author: alessandro.modolo (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: asecid_aazi
+            baseTableName: asecrets
+            constraintName: fkasec01
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: aaziid
+            referencedTableName: aaziende
+            validate: true
+  - changeSet:
+      id: 1663534672766-11
+      author: alessandro.modolo (generated)
+      changes:
+        - dropIndex:
+            indexName: idxscol01
+            tableName: scollegamenti
+  - changeSet:
+      id: 1663534672766-12
+      author: alessandro.modolo (generated)
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: alivpkg
+                  value: geocall.base
+              - column:
+                  name: alivmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alivmin
+                  valueNumeric: !!float '2'
+              - column:
+                  name: alivpatch
+                  valueNumeric: !!float '18'
+              - column:
+                  name: alivseq
+                  value: '20220304'
+              - column:
+                  name: alivdata
+                  valueDate: 2022-09-18T11:09:14.329718
+            tableName: alivelli
+        - insert:
+            columns:
+              - column:
+                  name: alivpkg
+                  value: geocall.securitylog
+              - column:
+                  name: alivmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alivmin
+                  valueNumeric: !!float '2'
+              - column:
+                  name: alivpatch
+                  valueNumeric: !!float '26'
+              - column:
+                  name: alivseq
+                  value: '20220617'
+              - column:
+                  name: alivdata
+                  valueDate: 2022-09-18T11:09:14.329718
+            tableName: alivelli
+        - insert:
+            columns:
+              - column:
+                  name: alivpkg
+                  value: geocall.core
+              - column:
+                  name: alivmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alivmin
+                  valueNumeric: !!float '2'
+              - column:
+                  name: alivpatch
+                  valueNumeric: !!float '27'
+              - column:
+                  name: alivseq
+                  value: '20220713'
+              - column:
+                  name: alivdata
+                  valueDate: 2022-09-18T11:09:14.329718
+            tableName: alivelli
+        - insert:
+            columns:
+              - column:
+                  name: alivpkg
+                  value: geocall.core
+              - column:
+                  name: alivmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alivmin
+                  valueNumeric: !!float '2'
+              - column:
+                  name: alivpatch
+                  valueNumeric: !!float '30'
+              - column:
+                  name: alivseq
+                  value: '20220807'
+              - column:
+                  name: alivdata
+                  valueDate: 2022-09-18T11:09:14.329718
+            tableName: alivelli
+

@@ -2,7 +2,7 @@
 
 Local stack created with docker compose that helps to get up and running in no time
 
-> DB changelog has been generated starting from the version `9.1-ita` of the foundation
+> DB changelog has been generated starting from the version `9.2-ita` of the foundation
 
 ## How to run it
 Docker compose is required. If you haven't installed it yet, please refer to the 
