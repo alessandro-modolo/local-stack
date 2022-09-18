@@ -32,7 +32,7 @@ sleep 5
 # get the target DB information
 read -rp "Enter JDBC connection url: " referenceUrl
 read -rp "Enter username: " referenceUsername
-read -rsp "Enter referencePassword: " referencePassword
+read -rsp "Enter password: " referencePassword
 echo
 echo
 echo "setup latest db snapshot..."
