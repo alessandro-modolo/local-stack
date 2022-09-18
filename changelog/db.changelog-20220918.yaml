@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1663492236209-1
+      id: 1663346924887-1
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -13,7 +13,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: asemaphore
   - changeSet:
-      id: 1663492236209-2
+      id: 1663346924887-2
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -50,7 +50,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: atimeslot
   - changeSet:
-      id: 1663492236209-3
+      id: 1663346924887-3
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -97,7 +97,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: aresource
   - changeSet:
-      id: 1663492236209-4
+      id: 1663346924887-4
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -115,7 +115,7 @@ databaseChangeLog:
                   type: VARCHAR(64)
             tableName: pkey
   - changeSet:
-      id: 1663492236209-5
+      id: 1663346924887-5
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -172,7 +172,7 @@ databaseChangeLog:
                   type: VARCHAR(10)
               - column:
                   name: ausetheme
-                  type: VARCHAR(20)
+                  type: VARCHAR(64)
               - column:
                   defaultValue: '0'
                   name: auseisoptionnotallowed
@@ -204,9 +204,12 @@ databaseChangeLog:
               - column:
                   name: action
                   type: numeric(10)
+              - column:
+                  name: auseaccessiblemode
+                  type: CHAR(1)
             tableName: auser
   - changeSet:
-      id: 1663492236209-6
+      id: 1663346924887-6
       author: alessandro.modolo (generated)
       changes:
         - insert:
@@ -237,7 +240,7 @@ databaseChangeLog:
                   value: admin
               - column:
                   name: ausepwd
-                  value: geocall
+                  value: password
               - column:
                   name: ausepwdalg
                   value: NONE
@@ -272,6 +275,8 @@ databaseChangeLog:
                   name: login
               - column:
                   name: action
+              - column:
+                  name: auseaccessiblemode
             tableName: auser
         - insert:
             columns:
@@ -336,9 +341,11 @@ databaseChangeLog:
                   name: login
               - column:
                   name: action
+              - column:
+                  name: auseaccessiblemode
             tableName: auser
   - changeSet:
-      id: 1663492236209-7
+      id: 1663346924887-7
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -404,7 +411,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: suserchange
   - changeSet:
-      id: 1663492236209-8
+      id: 1663346924887-8
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -440,38 +447,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: sfailedaccess
   - changeSet:
-      id: 1663492236209-9
-      author: alessandro.modolo (generated)
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: srun_pkey
-                  name: srunid
-                  type: numeric(10)
-              - column:
-                  name: sruninstance
-                  type: VARCHAR(100)
-              - column:
-                  name: srunstartdate
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: srunstopdate
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: srunpasswordalgorithm
-                  type: VARCHAR(10)
-              - column:
-                  constraints:
-                    nullable: false
-                  name: srunnodehost
-                  type: VARCHAR(255)
-            tableName: srun
-  - changeSet:
-      id: 1663492236209-10
+      id: 1663346924887-9
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -505,9 +481,6 @@ databaseChangeLog:
                   name: saccduration
                   type: numeric(10)
               - column:
-                  name: saccid_srun
-                  type: numeric(10)
-              - column:
                   name: saccip
                   type: VARCHAR(50)
               - column:
@@ -527,7 +500,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: saccess
   - changeSet:
-      id: 1663492236209-11
+      id: 1663346924887-10
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -571,7 +544,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: spassword
   - changeSet:
-      id: 1663492236209-12
+      id: 1663346924887-11
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -610,7 +583,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: auserstate
   - changeSet:
-      id: 1663492236209-13
+      id: 1663346924887-12
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -636,7 +609,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: rusertypeuser
   - changeSet:
-      id: 1663492236209-14
+      id: 1663346924887-13
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -671,7 +644,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: smmfetching
   - changeSet:
-      id: 1663492236209-15
+      id: 1663346924887-14
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -730,200 +703,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: ammessage
   - changeSet:
-      id: 1663492236209-16
-      author: alessandro.modolo (generated)
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: apdacommunication_pkey
-                  name: apcoid
-                  type: numeric(10)
-              - column:
-                  constraints:
-                    nullable: false
-                  name: apcoid_acom
-                  type: numeric(10)
-              - column:
-                  name: apcoid_ause
-                  type: numeric(10)
-              - column:
-                  name: apcopdaorder
-                  type: numeric(10)
-              - column:
-                  name: apcopdadocument
-                  type: numeric(10)
-              - column:
-                  name: apcopdaip
-                  type: VARCHAR(15)
-              - column:
-                  name: apcopdaport
-                  type: numeric(10)
-              - column:
-                  name: apcopdadevicekey
-                  type: VARCHAR(50)
-              - column:
-                  name: apcodescription
-                  type: VARCHAR(40)
-              - column:
-                  name: apcogpsstatus
-                  type: VARCHAR(20)
-              - column:
-                  name: apcolastsyncdate
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: apcoversionnumber
-                  type: VARCHAR(20)
-              - column:
-                  name: apcoid_lpmo
-                  type: numeric(10)
-              - column:
-                  name: apcoisrequestslog
-                  type: CHAR(1)
-              - column:
-                  name: apcoisfulllog
-                  type: CHAR(1)
-              - column:
-                  name: apcoissenderrorlogenabled
-                  type: CHAR(1)
-              - column:
-                  name: apcoissendlogenabled
-                  type: CHAR(1)
-              - column:
-                  name: apcoissenddbenabled
-                  type: CHAR(1)
-              - column:
-                  name: apcoissendconfigenabled
-                  type: CHAR(1)
-              - column:
-                  name: apcoisapplicationupdate
-                  type: CHAR(1)
-              - column:
-                  name: apcostartlockdate
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: apcoendlockdate
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: apcoisactive
-                  type: CHAR(1)
-              - column:
-                  name: apcologlevel
-                  type: numeric(3)
-              - column:
-                  name: datastamp
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: login
-                  type: numeric(10)
-              - column:
-                  name: action
-                  type: numeric(10)
-            tableName: apdacommunication
-  - changeSet:
-      id: 1663492236209-17
-      author: alessandro.modolo (generated)
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    nullable: false
-                  name: spsyid_apco
-                  type: numeric(10)
-              - column:
-                  constraints:
-                    nullable: false
-                  name: spsysynchronizationid
-                  type: numeric(15)
-              - column:
-                  defaultValue: '0'
-                  name: spsyisprocessed
-                  type: CHAR(1)
-              - column:
-                  name: spsytask
-                  type: VARCHAR(80)
-              - column:
-                  name: spsyfulllog
-                  type: VARCHAR(40)
-              - column:
-                  name: spsyreceivedbyte
-                  type: numeric(10)
-              - column:
-                  name: spsysentbyte
-                  type: numeric(10)
-              - column:
-                  name: spsystartdate
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: spsyenddate
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: spsyduration
-                  type: numeric(10)
-              - column:
-                  defaultValue: '0'
-                  name: spsyiserror
-                  type: CHAR(1)
-              - column:
-                  name: spsyiswarning
-                  type: CHAR(1)
-              - column:
-                  name: spsyversion
-                  type: VARCHAR(20)
-              - column:
-                  name: spsyisalert
-                  type: CHAR(1)
-              - column:
-                  name: spsyid_ause
-                  type: numeric(10)
-              - column:
-                  name: datastamp
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: login
-                  type: numeric(10)
-              - column:
-                  name: action
-                  type: numeric(10)
-            tableName: spdasynchronization
-  - changeSet:
-      id: 1663492236209-18
-      author: alessandro.modolo (generated)
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    nullable: false
-                  name: rpcoid_lcpa
-                  type: numeric(10)
-              - column:
-                  constraints:
-                    nullable: false
-                  name: rpcoid_apco
-                  type: numeric(10)
-              - column:
-                  name: rpcoid_acom
-                  type: numeric(10)
-              - column:
-                  name: rpcovalue
-                  type: numeric(10)
-              - column:
-                  name: datastamp
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: login
-                  type: numeric(10)
-              - column:
-                  name: action
-                  type: numeric(10)
-            tableName: rpdacounter
-  - changeSet:
-      id: 1663492236209-19
+      id: 1663346924887-15
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -947,7 +727,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: snonce
   - changeSet:
-      id: 1663492236209-20
+      id: 1663346924887-16
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -1027,7 +807,7 @@ databaseChangeLog:
                   type: TEXT
             tableName: slog
   - changeSet:
-      id: 1663492236209-21
+      id: 1663346924887-17
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -1089,7 +869,192 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: sjobexecutions
   - changeSet:
-      id: 1663492236209-22
+      id: 1663346924887-18
+      author: alessandro.modolo (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: sdatalog_pkey
+                  name: sdloid
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: sdloauthor
+                  type: numeric(10)
+              - column:
+                  name: sdloobjectid
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: sdlocompany
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: sdlodate
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: sdlotype
+                  type: VARCHAR(128)
+              - column:
+                  name: sdlodata
+                  type: TEXT
+              - column:
+                  name: datastamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: login
+                  type: numeric(10)
+              - column:
+                  name: action
+                  type: numeric(10)
+            tableName: sdatalog
+  - changeSet:
+      id: 1663346924887-19
+      author: alessandro.modolo (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: asecrets_pkey
+                  name: asecid
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecid_acom
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecname
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecversionid
+                  type: VARCHAR(40)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecvalue
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: asecissuedate
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: datastamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: login
+                  type: numeric(10)
+              - column:
+                  name: action
+                  type: numeric(10)
+            tableName: asecrets
+  - changeSet:
+      id: 1663346924887-20
+      author: alessandro.modolo (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pkadse01
+                  name: adsename
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pkadse01
+                  name: adseid_acom
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: adseversion
+                  type: VARCHAR(50)
+              - column:
+                  name: adsedatestamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: adsedatasetrequirements
+                  type: VARCHAR(255)
+              - column:
+                  name: datastamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: login
+                  type: numeric(10)
+              - column:
+                  name: action
+                  type: numeric(10)
+            tableName: adatasets
+  - changeSet:
+      id: 1663346924887-21
+      author: alessandro.modolo (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pkaake01
+                  name: aakeid
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: aakeid_ause
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: aakevalue
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: aakename
+                  type: VARCHAR(64)
+              - column:
+                  name: aakedescription
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: aakeissuedate
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: aakeexpiration
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: datastamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: login
+                  type: numeric(10)
+              - column:
+                  name: action
+                  type: numeric(10)
+            tableName: aapikeys
+  - changeSet:
+      id: 1663346924887-22
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1100,7 +1065,7 @@ databaseChangeLog:
             tableName: asemaphore
             unique: true
   - changeSet:
-      id: 1663492236209-23
+      id: 1663346924887-23
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1111,7 +1076,7 @@ databaseChangeLog:
             tableName: atimeslot
             unique: true
   - changeSet:
-      id: 1663492236209-24
+      id: 1663346924887-24
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1121,7 +1086,7 @@ databaseChangeLog:
             indexName: idxatsl01
             tableName: atimeslot
   - changeSet:
-      id: 1663492236209-25
+      id: 1663346924887-25
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1136,7 +1101,7 @@ databaseChangeLog:
             tableName: aresource
             unique: true
   - changeSet:
-      id: 1663492236209-26
+      id: 1663346924887-26
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1146,7 +1111,7 @@ databaseChangeLog:
             indexName: idxpkey
             tableName: pkey
   - changeSet:
-      id: 1663492236209-27
+      id: 1663346924887-27
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1158,7 +1123,7 @@ databaseChangeLog:
             indexName: idxause01
             tableName: auser
   - changeSet:
-      id: 1663492236209-28
+      id: 1663346924887-28
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1172,7 +1137,7 @@ databaseChangeLog:
             indexName: idxause02
             tableName: auser
   - changeSet:
-      id: 1663492236209-29
+      id: 1663346924887-29
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1185,7 +1150,7 @@ databaseChangeLog:
             tableName: auser
             unique: true
   - changeSet:
-      id: 1663492236209-30
+      id: 1663346924887-30
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1197,53 +1162,7 @@ databaseChangeLog:
             indexName: idxsfac01
             tableName: sfailedaccess
   - changeSet:
-      id: 1663492236209-31
-      author: alessandro.modolo (generated)
-      changes:
-        - createIndex:
-            columns:
-              - column:
-                  name: srunid
-              - column:
-                  name: srunnodehost
-              - column:
-                  name: srunstartdate
-              - column:
-                  name: srunstopdate
-            indexName: idxsrun01
-            tableName: srun
-            unique: true
-  - changeSet:
-      id: 1663492236209-32
-      author: alessandro.modolo (generated)
-      changes:
-        - createIndex:
-            columns:
-              - column:
-                  name: sacclogindate
-              - column:
-                  name: sacclogoutdate
-              - column:
-                  name: saccid_acom
-              - column:
-                  name: saccid_ause
-            indexName: idxsacc01
-            tableName: saccess
-            unique: true
-  - changeSet:
-      id: 1663492236209-33
-      author: alessandro.modolo (generated)
-      changes:
-        - createIndex:
-            columns:
-              - column:
-                  name: saccid_srun
-              - column:
-                  name: sacclogindate
-            indexName: idxsacc02
-            tableName: saccess
-  - changeSet:
-      id: 1663492236209-34
+      id: 1663346924887-31
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1253,7 +1172,7 @@ databaseChangeLog:
             indexName: idxsacc03
             tableName: saccess
   - changeSet:
-      id: 1663492236209-35
+      id: 1663346924887-32
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1265,7 +1184,7 @@ databaseChangeLog:
             indexName: idxsacc04
             tableName: saccess
   - changeSet:
-      id: 1663492236209-36
+      id: 1663346924887-33
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1279,7 +1198,7 @@ databaseChangeLog:
             indexName: idxspwd01
             tableName: spassword
   - changeSet:
-      id: 1663492236209-37
+      id: 1663346924887-34
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1293,7 +1212,7 @@ databaseChangeLog:
             indexName: idxspwd02
             tableName: spassword
   - changeSet:
-      id: 1663492236209-38
+      id: 1663346924887-35
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1307,7 +1226,7 @@ databaseChangeLog:
             indexName: idxspwd03
             tableName: spassword
   - changeSet:
-      id: 1663492236209-39
+      id: 1663346924887-36
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1322,7 +1241,7 @@ databaseChangeLog:
             tableName: auserstate
             unique: true
   - changeSet:
-      id: 1663492236209-40
+      id: 1663346924887-37
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1335,7 +1254,7 @@ databaseChangeLog:
             tableName: rusertypeuser
             unique: true
   - changeSet:
-      id: 1663492236209-41
+      id: 1663346924887-38
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1348,7 +1267,7 @@ databaseChangeLog:
             tableName: smmfetching
             unique: true
   - changeSet:
-      id: 1663492236209-42
+      id: 1663346924887-39
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1358,7 +1277,7 @@ databaseChangeLog:
             indexName: idxsmmf02
             tableName: smmfetching
   - changeSet:
-      id: 1663492236209-43
+      id: 1663346924887-40
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1371,60 +1290,7 @@ databaseChangeLog:
             tableName: ammessage
             unique: true
   - changeSet:
-      id: 1663492236209-44
-      author: alessandro.modolo (generated)
-      changes:
-        - createIndex:
-            columns:
-              - column:
-                  name: apcopdadevicekey
-            indexName: idxapco02
-            tableName: apdacommunication
-  - changeSet:
-      id: 1663492236209-45
-      author: alessandro.modolo (generated)
-      changes:
-        - createIndex:
-            columns:
-              - column:
-                  name: spsystartdate
-            indexName: idxspsy02
-            tableName: spdasynchronization
-  - changeSet:
-      id: 1663492236209-46
-      author: alessandro.modolo (generated)
-      changes:
-        - createIndex:
-            columns:
-              - column:
-                  name: spsyenddate
-            indexName: idxspsy03
-            tableName: spdasynchronization
-  - changeSet:
-      id: 1663492236209-47
-      author: alessandro.modolo (generated)
-      changes:
-        - createIndex:
-            columns:
-              - column:
-                  name: spsytask
-            indexName: idxspsy04
-            tableName: spdasynchronization
-  - changeSet:
-      id: 1663492236209-48
-      author: alessandro.modolo (generated)
-      changes:
-        - createIndex:
-            columns:
-              - column:
-                  name: rpcoid_lcpa
-              - column:
-                  name: rpcoid_apco
-            indexName: idxrpco
-            tableName: rpdacounter
-            unique: true
-  - changeSet:
-      id: 1663492236209-49
+      id: 1663346924887-41
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1435,7 +1301,7 @@ databaseChangeLog:
             tableName: snonce
             unique: true
   - changeSet:
-      id: 1663492236209-50
+      id: 1663346924887-42
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1445,7 +1311,7 @@ databaseChangeLog:
             indexName: idxslog02
             tableName: slog
   - changeSet:
-      id: 1663492236209-51
+      id: 1663346924887-43
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1455,7 +1321,7 @@ databaseChangeLog:
             indexName: idxslog03
             tableName: slog
   - changeSet:
-      id: 1663492236209-52
+      id: 1663346924887-44
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1465,7 +1331,7 @@ databaseChangeLog:
             indexName: idxslog04
             tableName: slog
   - changeSet:
-      id: 1663492236209-53
+      id: 1663346924887-45
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1475,7 +1341,7 @@ databaseChangeLog:
             indexName: idxslog05
             tableName: slog
   - changeSet:
-      id: 1663492236209-54
+      id: 1663346924887-46
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1485,7 +1351,7 @@ databaseChangeLog:
             indexName: idxslog06
             tableName: slog
   - changeSet:
-      id: 1663492236209-55
+      id: 1663346924887-47
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1495,7 +1361,7 @@ databaseChangeLog:
             indexName: idxsjex01
             tableName: sjobexecutions
   - changeSet:
-      id: 1663492236209-56
+      id: 1663346924887-48
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1505,7 +1371,7 @@ databaseChangeLog:
             indexName: idxsjex02
             tableName: sjobexecutions
   - changeSet:
-      id: 1663492236209-57
+      id: 1663346924887-49
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1516,7 +1382,7 @@ databaseChangeLog:
             indexName: idxsjex03
             tableName: sjobexecutions
   - changeSet:
-      id: 1663492236209-58
+      id: 1663346924887-50
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1526,7 +1392,7 @@ databaseChangeLog:
             indexName: idxsjex04
             tableName: sjobexecutions
   - changeSet:
-      id: 1663492236209-59
+      id: 1663346924887-51
       author: alessandro.modolo (generated)
       changes:
         - createIndex:
@@ -1536,7 +1402,115 @@ databaseChangeLog:
             indexName: idxsjex05
             tableName: sjobexecutions
   - changeSet:
-      id: 1663492236209-60
+      id: 1663346924887-52
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: sdlotype
+              - column:
+                  name: sdlodate
+            indexName: idxsdlo01
+            tableName: sdatalog
+  - changeSet:
+      id: 1663346924887-53
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: sdlotype
+              - column:
+                  name: sdlocompany
+            indexName: idxsdlo02
+            tableName: sdatalog
+  - changeSet:
+      id: 1663346924887-54
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: sdlotype
+              - column:
+                  name: sdloobjectid
+            indexName: idxsdlo03
+            tableName: sdatalog
+  - changeSet:
+      id: 1663346924887-55
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: sdlotype
+            indexName: idxsdlo04
+            tableName: sdatalog
+  - changeSet:
+      id: 1663346924887-56
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: asecid_acom
+              - column:
+                  name: asecname
+              - column:
+                  name: asecversionid
+            indexName: idxasec01
+            tableName: asecrets
+            unique: true
+  - changeSet:
+      id: 1663346924887-57
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: adseid_acom
+            indexName: idxadse01
+            tableName: adatasets
+  - changeSet:
+      id: 1663346924887-58
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: aakevalue
+            indexName: idxaake01
+            tableName: aapikeys
+            unique: true
+  - changeSet:
+      id: 1663346924887-59
+      author: alessandro.modolo (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: aakeid_ause
+              - column:
+                  name: aakename
+            indexName: idxaake02
+            tableName: aapikeys
+            unique: true
+  - changeSet:
+      id: 1663346924887-60
+      author: alessandro.modolo (generated)
+      changes:
+        - createSequence:
+            cacheSize: 1
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 1
+            sequenceName: saapikeys
+            startValue: 1
+  - changeSet:
+      id: 1663346924887-61
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1549,7 +1523,7 @@ databaseChangeLog:
             sequenceName: sacxf
             startValue: 1
   - changeSet:
-      id: 1663492236209-61
+      id: 1663346924887-62
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1562,7 +1536,7 @@ databaseChangeLog:
             sequenceName: samessage
             startValue: 1
   - changeSet:
-      id: 1663492236209-62
+      id: 1663346924887-63
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1575,7 +1549,7 @@ databaseChangeLog:
             sequenceName: sammaddress
             startValue: 1
   - changeSet:
-      id: 1663492236209-63
+      id: 1663346924887-64
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1588,7 +1562,7 @@ databaseChangeLog:
             sequenceName: sammattachment
             startValue: 1
   - changeSet:
-      id: 1663492236209-64
+      id: 1663346924887-65
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1601,7 +1575,7 @@ databaseChangeLog:
             sequenceName: sammattribute
             startValue: 1
   - changeSet:
-      id: 1663492236209-65
+      id: 1663346924887-66
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1614,7 +1588,7 @@ databaseChangeLog:
             sequenceName: sammessage
             startValue: 1
   - changeSet:
-      id: 1663492236209-66
+      id: 1663346924887-67
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1627,7 +1601,7 @@ databaseChangeLog:
             sequenceName: sammtemplate
             startValue: 1
   - changeSet:
-      id: 1663492236209-67
+      id: 1663346924887-68
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1640,33 +1614,7 @@ databaseChangeLog:
             sequenceName: sammunmanaged
             startValue: 1
   - changeSet:
-      id: 1663492236209-68
-      author: alessandro.modolo (generated)
-      changes:
-        - createSequence:
-            cacheSize: 1
-            cycle: false
-            dataType: bigint
-            incrementBy: 1
-            maxValue: 9223372036854775807
-            minValue: 1
-            sequenceName: sapdacommunication
-            startValue: 1
-  - changeSet:
-      id: 1663492236209-69
-      author: alessandro.modolo (generated)
-      changes:
-        - createSequence:
-            cacheSize: 1
-            cycle: false
-            dataType: bigint
-            incrementBy: 1
-            maxValue: 9223372036854775807
-            minValue: 1
-            sequenceName: sapdanotification
-            startValue: 1
-  - changeSet:
-      id: 1663492236209-70
+      id: 1663346924887-69
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1679,7 +1627,20 @@ databaseChangeLog:
             sequenceName: saresource
             startValue: 1
   - changeSet:
-      id: 1663492236209-71
+      id: 1663346924887-70
+      author: alessandro.modolo (generated)
+      changes:
+        - createSequence:
+            cacheSize: 1
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 1
+            sequenceName: sasecrets
+            startValue: 1
+  - changeSet:
+      id: 1663346924887-71
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1692,7 +1653,7 @@ databaseChangeLog:
             sequenceName: sasession
             startValue: 1
   - changeSet:
-      id: 1663492236209-72
+      id: 1663346924887-72
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1705,7 +1666,7 @@ databaseChangeLog:
             sequenceName: sauser
             startValue: 1
   - changeSet:
-      id: 1663492236209-73
+      id: 1663346924887-73
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1718,7 +1679,20 @@ databaseChangeLog:
             sequenceName: ssaccess
             startValue: 1
   - changeSet:
-      id: 1663492236209-74
+      id: 1663346924887-74
+      author: alessandro.modolo (generated)
+      changes:
+        - createSequence:
+            cacheSize: 1
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            maxValue: 9223372036854775807
+            minValue: 1
+            sequenceName: ssdatalog
+            startValue: 1
+  - changeSet:
+      id: 1663346924887-75
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1731,7 +1705,7 @@ databaseChangeLog:
             sequenceName: ssfailedaccess
             startValue: 1
   - changeSet:
-      id: 1663492236209-75
+      id: 1663346924887-76
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1744,7 +1718,7 @@ databaseChangeLog:
             sequenceName: ssjobexecutions
             startValue: 1
   - changeSet:
-      id: 1663492236209-76
+      id: 1663346924887-77
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1757,7 +1731,7 @@ databaseChangeLog:
             sequenceName: sslog
             startValue: 1
   - changeSet:
-      id: 1663492236209-77
+      id: 1663346924887-78
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1770,7 +1744,7 @@ databaseChangeLog:
             sequenceName: ssmmfetching
             startValue: 1
   - changeSet:
-      id: 1663492236209-78
+      id: 1663346924887-79
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1783,7 +1757,7 @@ databaseChangeLog:
             sequenceName: ssnonce
             startValue: 1
   - changeSet:
-      id: 1663492236209-79
+      id: 1663346924887-80
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1796,20 +1770,7 @@ databaseChangeLog:
             sequenceName: sspassword
             startValue: 1
   - changeSet:
-      id: 1663492236209-80
-      author: alessandro.modolo (generated)
-      changes:
-        - createSequence:
-            cacheSize: 1
-            cycle: false
-            dataType: bigint
-            incrementBy: 1
-            maxValue: 9223372036854775807
-            minValue: 1
-            sequenceName: sspdarequestsqueue
-            startValue: 1
-  - changeSet:
-      id: 1663492236209-81
+      id: 1663346924887-81
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1822,7 +1783,7 @@ databaseChangeLog:
             sequenceName: ssrun
             startValue: 1
   - changeSet:
-      id: 1663492236209-82
+      id: 1663346924887-82
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1835,7 +1796,7 @@ databaseChangeLog:
             sequenceName: ssuserchange
             startValue: 1
   - changeSet:
-      id: 1663492236209-83
+      id: 1663346924887-83
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1848,7 +1809,7 @@ databaseChangeLog:
             sequenceName: stmmfetching
             startValue: 1
   - changeSet:
-      id: 1663492236209-84
+      id: 1663346924887-84
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1861,7 +1822,7 @@ databaseChangeLog:
             sequenceName: stmmrouting
             startValue: 1
   - changeSet:
-      id: 1663492236209-85
+      id: 1663346924887-85
       author: alessandro.modolo (generated)
       changes:
         - createSequence:
@@ -1874,7 +1835,7 @@ databaseChangeLog:
             sequenceName: stuser
             startValue: 1
   - changeSet:
-      id: 1663492236209-86
+      id: 1663346924887-86
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -1914,7 +1875,40 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: acompany
   - changeSet:
-      id: 1663492236209-87
+      id: 1663346924887-87
+      author: alessandro.modolo (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pkacon01
+                  name: aconid_acom
+                  type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pkacon01
+                  name: aconname
+                  type: VARCHAR(32)
+              - column:
+                  name: aconproperties
+                  type: TEXT
+              - column:
+                  name: datastamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: login
+                  type: numeric(10)
+              - column:
+                  name: action
+                  type: numeric(10)
+            tableName: aconfig
+  - changeSet:
+      id: 1663346924887-88
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -1962,7 +1956,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: acxf
   - changeSet:
-      id: 1663492236209-88
+      id: 1663346924887-89
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -1997,7 +1991,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: alevel
   - changeSet:
-      id: 1663492236209-89
+      id: 1663346924887-90
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2037,7 +2031,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: amessage
   - changeSet:
-      id: 1663492236209-90
+      id: 1663346924887-91
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2078,7 +2072,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: ammaddress
   - changeSet:
-      id: 1663492236209-91
+      id: 1663346924887-92
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2125,7 +2119,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: ammattachment
   - changeSet:
-      id: 1663492236209-92
+      id: 1663346924887-93
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2160,7 +2154,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: ammattribute
   - changeSet:
-      id: 1663492236209-93
+      id: 1663346924887-94
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2198,7 +2192,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: ammtemplate
   - changeSet:
-      id: 1663492236209-94
+      id: 1663346924887-95
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2230,48 +2224,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: ammunmanaged
   - changeSet:
-      id: 1663492236209-95
-      author: alessandro.modolo (generated)
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: apdanotification_pkey
-                  name: apnoid
-                  type: numeric(10)
-              - column:
-                  name: apnoid_acom
-                  type: numeric(10)
-              - column:
-                  name: apnoid_apco
-                  type: numeric(10)
-              - column:
-                  name: apnomessage
-                  type: VARCHAR(4000)
-              - column:
-                  name: apnoexpirationdate
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: apnonotificationtype
-                  type: numeric(4)
-              - column:
-                  name: apnosendstatus
-                  type: numeric(4)
-              - column:
-                  name: datastamp
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: login
-                  type: numeric(10)
-              - column:
-                  name: action
-                  type: numeric(10)
-            tableName: apdanotification
-  - changeSet:
-      id: 1663492236209-96
+      id: 1663346924887-96
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2312,7 +2265,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: asession
   - changeSet:
-      id: 1663492236209-97
+      id: 1663346924887-97
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2338,75 +2291,7 @@ databaseChangeLog:
                   type: numeric(10)
             tableName: ausertypefunction
   - changeSet:
-      id: 1663492236209-98
-      author: alessandro.modolo (generated)
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: lpdamodel_pkey
-                  name: lpmoid
-                  type: numeric(10)
-              - column:
-                  name: lpmodescription
-                  type: VARCHAR(40)
-              - column:
-                  name: lpmocode
-                  type: VARCHAR(20)
-            tableName: lpdamodel
-  - changeSet:
-      id: 1663492236209-99
-      author: alessandro.modolo (generated)
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-                    primaryKeyName: spdarequestsqueue_pkey
-                  name: sprqid
-                  type: numeric(10)
-              - column:
-                  constraints:
-                    nullable: false
-                  name: sprqid_apco
-                  type: numeric(10)
-              - column:
-                  name: sprqparameter
-                  type: VARCHAR(4000)
-              - column:
-                  constraints:
-                    nullable: false
-                  name: sprqxmltask
-                  type: VARCHAR(40)
-              - column:
-                  name: sprqisnext
-                  type: CHAR(1)
-              - column:
-                  name: sprqisinqueue
-                  type: CHAR(1)
-              - column:
-                  name: sprqid_ause
-                  type: numeric(10)
-              - column:
-                  name: sprqkey
-                  type: VARCHAR(100)
-              - column:
-                  name: datastamp
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: login
-                  type: numeric(10)
-              - column:
-                  name: action
-                  type: numeric(10)
-            tableName: spdarequestsqueue
-  - changeSet:
-      id: 1663492236209-100
+      id: 1663346924887-98
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2477,7 +2362,7 @@ databaseChangeLog:
                   type: VARCHAR(50)
             tableName: tmmfetching
   - changeSet:
-      id: 1663492236209-101
+      id: 1663346924887-99
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2524,7 +2409,7 @@ databaseChangeLog:
                   type: TIMESTAMP WITHOUT TIME ZONE
             tableName: tmmrouting
   - changeSet:
-      id: 1663492236209-102
+      id: 1663346924887-100
       author: alessandro.modolo (generated)
       changes:
         - createTable:
@@ -2571,9 +2456,14 @@ databaseChangeLog:
               - column:
                   name: action
                   type: numeric(10)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tuseiscompanyadmin
+                  type: CHAR(1)
             tableName: tuser
   - changeSet:
-      id: 1663492236209-103
+      id: 1663346924887-101
       author: alessandro.modolo (generated)
       changes:
         - insert:
@@ -2629,7 +2519,7 @@ databaseChangeLog:
                   name: action
             tableName: acompany
   - changeSet:
-      id: 1663492236209-104
+      id: 1663346924887-102
       author: alessandro.modolo (generated)
       changes:
         - insert:
@@ -2651,7 +2541,7 @@ databaseChangeLog:
                   value: '20200804'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:14.329718
+                  valueDate: 2022-09-16T18:47:34.197093
             tableName: alevel
         - insert:
             columns:
@@ -2672,7 +2562,7 @@ databaseChangeLog:
                   value: '20200804'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:14.550493
+                  valueDate: 2022-09-16T18:47:34.511435
             tableName: alevel
         - insert:
             columns:
@@ -2693,28 +2583,7 @@ databaseChangeLog:
                   value: '20200804'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:14.76568
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.pda
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20200804'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-18T11:09:14.849791
+                  valueDate: 2022-09-16T18:47:34.654082
             tableName: alevel
         - insert:
             columns:
@@ -2735,7 +2604,7 @@ databaseChangeLog:
                   value: '20200804'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:14.878942
+                  valueDate: 2022-09-16T18:47:34.691675
             tableName: alevel
         - insert:
             columns:
@@ -2756,28 +2625,7 @@ databaseChangeLog:
                   value: '20200805'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:14.92829
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.pda
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '6'
-              - column:
-                  name: alevseq
-                  value: '20210325'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-18T11:09:14.942608
+                  valueDate: 2022-09-16T18:47:34.74795
             tableName: alevel
         - insert:
             columns:
@@ -2798,7 +2646,7 @@ databaseChangeLog:
                   value: '20210517'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:14.949299
+                  valueDate: 2022-09-16T18:47:34.757528
             tableName: alevel
         - insert:
             columns:
@@ -2819,7 +2667,7 @@ databaseChangeLog:
                   value: '20210207'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:14.957837
+                  valueDate: 2022-09-16T18:47:34.772421
             tableName: alevel
         - insert:
             columns:
@@ -2840,7 +2688,7 @@ databaseChangeLog:
                   value: '20220311'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:14.967222
+                  valueDate: 2022-09-16T18:47:34.785191
             tableName: alevel
         - insert:
             columns:
@@ -2861,7 +2709,7 @@ databaseChangeLog:
                   value: '20220630'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:15.005685
+                  valueDate: 2022-09-16T18:47:34.8351
             tableName: alevel
         - insert:
             columns:
@@ -2882,10 +2730,241 @@ databaseChangeLog:
                   value: '20220901'
               - column:
                   name: alevdate
-                  valueDate: 2022-09-18T11:09:15.033094
+                  valueDate: 2022-09-16T18:47:34.85364
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.base
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '2'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '18'
+              - column:
+                  name: alevseq
+                  value: '20220304'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:34.863635
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.securitylog
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '2'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '26'
+              - column:
+                  name: alevseq
+                  value: '20220617'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:34.898678
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.core
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '2'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '27'
+              - column:
+                  name: alevseq
+                  value: '20220713'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:34.91691
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.core
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '2'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '30'
+              - column:
+                  name: alevseq
+                  value: '20220807'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:34.932874
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.base
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '9'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '3'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevseq
+                  value: '20220118'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:34.941134
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.core
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '10'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevseq
+                  value: '20210505'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:34.952228
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.core
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '10'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevseq
+                  value: '20211122'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:34.968279
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.core
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '10'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevseq
+                  value: '20220111'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:34.993831
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.base
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '10'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevseq
+                  value: '20220208'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:35.003053
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.base
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '10'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevseq
+                  value: '20220310'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:35.02595
+            tableName: alevel
+        - insert:
+            columns:
+              - column:
+                  name: alevpkg
+                  value: geocall.base
+              - column:
+                  name: alevmaj
+                  valueNumeric: !!float '10'
+              - column:
+                  name: alevmin
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevpatch
+                  valueNumeric: !!float '0'
+              - column:
+                  name: alevseq
+                  value: '20220516'
+              - column:
+                  name: alevdate
+                  valueDate: 2022-09-16T18:47:35.047701
             tableName: alevel
   - changeSet:
-      id: 1663492236209-105
+      id: 1663346924887-103
       author: alessandro.modolo (generated)
       changes:
         - insert:
@@ -3009,7 +3088,7 @@ databaseChangeLog:
                   name: action
             tableName: ausertypefunction
   - changeSet:
-      id: 1663492236209-106
+      id: 1663346924887-104
       author: alessandro.modolo (generated)
       changes:
         - insert:
@@ -3044,6 +3123,9 @@ databaseChangeLog:
                   name: login
               - column:
                   name: action
+              - column:
+                  name: tuseiscompanyadmin
+                  value: '0'
             tableName: tuser
         - insert:
             columns:
@@ -3077,9 +3159,57 @@ databaseChangeLog:
                   name: login
               - column:
                   name: action
+              - column:
+                  name: tuseiscompanyadmin
+                  value: '0'
             tableName: tuser
   - changeSet:
-      id: 1663492236209-107
+      id: 1663346924887-105
+      author: alessandro.modolo (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: aakeid_ause
+            baseTableName: aapikeys
+            constraintName: fkaake01
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: auseid
+            referencedTableName: auser
+            validate: true
+  - changeSet:
+      id: 1663346924887-106
+      author: alessandro.modolo (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: aconid_acom
+            baseTableName: aconfig
+            constraintName: fkacon01
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: acomid
+            referencedTableName: acompany
+            validate: true
+  - changeSet:
+      id: 1663346924887-107
+      author: alessandro.modolo (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: adseid_acom
+            baseTableName: adatasets
+            constraintName: fkadse01
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: acomid
+            referencedTableName: acompany
+            validate: true
+  - changeSet:
+      id: 1663346924887-108
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3094,7 +3224,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-108
+      id: 1663346924887-109
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3109,7 +3239,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-109
+      id: 1663346924887-110
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3124,7 +3254,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-110
+      id: 1663346924887-111
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3139,7 +3269,7 @@ databaseChangeLog:
             referencedTableName: ammessage
             validate: true
   - changeSet:
-      id: 1663492236209-111
+      id: 1663346924887-112
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3154,7 +3284,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-112
+      id: 1663346924887-113
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3169,7 +3299,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-113
+      id: 1663346924887-114
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3184,7 +3314,7 @@ databaseChangeLog:
             referencedTableName: ammessage
             validate: true
   - changeSet:
-      id: 1663492236209-114
+      id: 1663346924887-115
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3199,7 +3329,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-115
+      id: 1663346924887-116
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3214,7 +3344,7 @@ databaseChangeLog:
             referencedTableName: smmfetching
             validate: true
   - changeSet:
-      id: 1663492236209-116
+      id: 1663346924887-117
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3229,7 +3359,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-117
+      id: 1663346924887-118
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3244,7 +3374,7 @@ databaseChangeLog:
             referencedTableName: ammessage
             validate: true
   - changeSet:
-      id: 1663492236209-118
+      id: 1663346924887-119
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3259,7 +3389,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-119
+      id: 1663346924887-120
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3274,7 +3404,7 @@ databaseChangeLog:
             referencedTableName: ammessage
             validate: true
   - changeSet:
-      id: 1663492236209-120
+      id: 1663346924887-121
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3289,7 +3419,7 @@ databaseChangeLog:
             referencedTableName: tmmfetching
             validate: true
   - changeSet:
-      id: 1663492236209-121
+      id: 1663346924887-122
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3304,7 +3434,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-122
+      id: 1663346924887-123
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3319,82 +3449,7 @@ databaseChangeLog:
             referencedTableName: ammessage
             validate: true
   - changeSet:
-      id: 1663492236209-123
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: apcoid_acom
-            baseTableName: apdacommunication
-            constraintName: fkapco01
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: acomid
-            referencedTableName: acompany
-            validate: true
-  - changeSet:
-      id: 1663492236209-124
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: apcoid_ause
-            baseTableName: apdacommunication
-            constraintName: fkapco02
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: auseid
-            referencedTableName: auser
-            validate: true
-  - changeSet:
-      id: 1663492236209-125
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: apcoid_lpmo
-            baseTableName: apdacommunication
-            constraintName: fkapco03
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: lpmoid
-            referencedTableName: lpdamodel
-            validate: true
-  - changeSet:
-      id: 1663492236209-126
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: apnoid_acom
-            baseTableName: apdanotification
-            constraintName: fkapno01
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: acomid
-            referencedTableName: acompany
-            validate: true
-  - changeSet:
-      id: 1663492236209-127
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: apnoid_apco
-            baseTableName: apdanotification
-            constraintName: fkapno02
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: apcoid
-            referencedTableName: apdacommunication
-            validate: true
-  - changeSet:
-      id: 1663492236209-128
+      id: 1663346924887-124
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3409,7 +3464,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-129
+      id: 1663346924887-125
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3424,7 +3479,22 @@ databaseChangeLog:
             referencedTableName: aresource
             validate: true
   - changeSet:
-      id: 1663492236209-130
+      id: 1663346924887-126
+      author: alessandro.modolo (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: asecid_acom
+            baseTableName: asecrets
+            constraintName: fkasec01
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: acomid
+            referencedTableName: acompany
+            validate: true
+  - changeSet:
+      id: 1663346924887-127
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3439,7 +3509,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-131
+      id: 1663346924887-128
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3454,7 +3524,7 @@ databaseChangeLog:
             referencedTableName: saccess
             validate: true
   - changeSet:
-      id: 1663492236209-132
+      id: 1663346924887-129
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3469,7 +3539,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-133
+      id: 1663346924887-130
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3484,7 +3554,7 @@ databaseChangeLog:
             referencedTableName: tuser
             validate: true
   - changeSet:
-      id: 1663492236209-134
+      id: 1663346924887-131
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3499,7 +3569,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-135
+      id: 1663346924887-132
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3514,37 +3584,7 @@ databaseChangeLog:
             referencedTableName: tuser
             validate: true
   - changeSet:
-      id: 1663492236209-136
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: rpcoid_apco
-            baseTableName: rpdacounter
-            constraintName: fkrpco01
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: apcoid
-            referencedTableName: apdacommunication
-            validate: true
-  - changeSet:
-      id: 1663492236209-137
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: rpcoid_acom
-            baseTableName: rpdacounter
-            constraintName: fkrpco02
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: acomid
-            referencedTableName: acompany
-            validate: true
-  - changeSet:
-      id: 1663492236209-138
+      id: 1663346924887-133
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3559,7 +3599,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-139
+      id: 1663346924887-134
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3574,7 +3614,7 @@ databaseChangeLog:
             referencedTableName: tuser
             validate: true
   - changeSet:
-      id: 1663492236209-140
+      id: 1663346924887-135
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3589,7 +3629,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-141
+      id: 1663346924887-136
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3604,22 +3644,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-142
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: saccid_srun
-            baseTableName: saccess
-            constraintName: fksacc03
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: srunid
-            referencedTableName: srun
-            validate: true
-  - changeSet:
-      id: 1663492236209-143
+      id: 1663346924887-137
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3634,7 +3659,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-144
+      id: 1663346924887-138
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3649,7 +3674,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-145
+      id: 1663346924887-139
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3664,7 +3689,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-146
+      id: 1663346924887-140
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3679,7 +3704,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-147
+      id: 1663346924887-141
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3694,7 +3719,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-148
+      id: 1663346924887-142
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3709,67 +3734,7 @@ databaseChangeLog:
             referencedTableName: tmmfetching
             validate: true
   - changeSet:
-      id: 1663492236209-149
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: sprqid_apco
-            baseTableName: spdarequestsqueue
-            constraintName: fksprq01
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: apcoid
-            referencedTableName: apdacommunication
-            validate: true
-  - changeSet:
-      id: 1663492236209-150
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: sprqid_ause
-            baseTableName: spdarequestsqueue
-            constraintName: fksprq02
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: auseid
-            referencedTableName: auser
-            validate: true
-  - changeSet:
-      id: 1663492236209-151
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: spsyid_apco
-            baseTableName: spdasynchronization
-            constraintName: fkspsy01
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: apcoid
-            referencedTableName: apdacommunication
-            validate: true
-  - changeSet:
-      id: 1663492236209-152
-      author: alessandro.modolo (generated)
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: spsyid_ause
-            baseTableName: spdasynchronization
-            constraintName: fkspsy02
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: auseid
-            referencedTableName: auser
-            validate: true
-  - changeSet:
-      id: 1663492236209-153
+      id: 1663346924887-143
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3784,7 +3749,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-154
+      id: 1663346924887-144
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3799,7 +3764,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-155
+      id: 1663346924887-145
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3814,7 +3779,7 @@ databaseChangeLog:
             referencedTableName: auser
             validate: true
   - changeSet:
-      id: 1663492236209-156
+      id: 1663346924887-146
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3829,7 +3794,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-157
+      id: 1663346924887-147
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3844,7 +3809,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-158
+      id: 1663346924887-148
       author: alessandro.modolo (generated)
       changes:
         - addForeignKeyConstraint:
@@ -3859,7 +3824,7 @@ databaseChangeLog:
             referencedTableName: acompany
             validate: true
   - changeSet:
-      id: 1663492236209-159
+      id: 1663346924887-149
       author: alessandro.modolo (generated)
       changes:
         - createView:
