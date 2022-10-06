@@ -1,0 +1,3 @@
+auseid,auseid_acom,auseid_tuse,ausesurname,ausename,ausetaxcode,ausebirthdate,auseemail,auseusername,ausepwd,ausepwdalg,ausestartdate,auseenddate,auselanguage,ausetheme,auseisoptionnotallowed,ausepwdexpirationdate,auselastpasswordupdate,ausefailedaccess,auselastaccessdate,auseunlockdate,ausegender,datastamp,login,action,auseaccessiblemode
+0,0,0,admin,admin,,,,admin,password,NONE,1800-01-01T00:00:00,2999-01-01T00:00:00,,,0,,,,,,,,,,
+1,1,1,admin,admin,,,,admin,password,NONE,1800-01-01T00:00:00,2999-01-01T00:00:00,,,0,,,,,,,,,,

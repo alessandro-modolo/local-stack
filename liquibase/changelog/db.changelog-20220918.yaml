@@ -1,5 +1,72 @@
 databaseChangeLog:
   - changeSet:
+      id: 1663346924887-0
+      author: alessandro.modolo
+      changes:
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_add_interval.sql
+            relativeToChangelogFile: true
+            stripComments: true
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_blength.sql
+            relativeToChangelogFile: true
+            stripComments: true
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_clength.sql
+            relativeToChangelogFile: true
+            stripComments: true
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_diff_date.sql
+            relativeToChangelogFile: true
+            stripComments: true
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_timestamp.sql
+            relativeToChangelogFile: true
+            stripComments: true
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_timestamp_tz.sql
+            relativeToChangelogFile: true
+            stripComments: true
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_to_timestamp.sql
+            relativeToChangelogFile: true
+            stripComments: true
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_trunc_date.sql
+            relativeToChangelogFile: true
+            stripComments: true
+        - sqlFile:
+            dbms: 'postgresql'
+            endDelimiter: "$function$ LANGUAGE plpgsql;"
+            splitStatements: true
+            path: ../functions/gc_trunc_number.sql
+            relativeToChangelogFile: true
+            stripComments: true
+  - changeSet:
       id: 1663346924887-1
       author: alessandro.modolo (generated)
       changes:
@@ -212,138 +279,12 @@ databaseChangeLog:
       id: 1663346924887-6
       author: alessandro.modolo (generated)
       changes:
-        - insert:
-            columns:
-              - column:
-                  name: auseid
-                  valueNumeric: !!float '0'
-              - column:
-                  name: auseid_acom
-                  valueNumeric: !!float '0'
-              - column:
-                  name: auseid_tuse
-                  valueNumeric: !!float '0'
-              - column:
-                  name: ausesurname
-                  value: admin
-              - column:
-                  name: ausename
-                  value: admin
-              - column:
-                  name: ausetaxcode
-              - column:
-                  name: ausebirthdate
-              - column:
-                  name: auseemail
-              - column:
-                  name: auseusername
-                  value: admin
-              - column:
-                  name: ausepwd
-                  value: password
-              - column:
-                  name: ausepwdalg
-                  value: NONE
-              - column:
-                  name: ausestartdate
-                  valueDate: 1800-01-01T00:00:00
-              - column:
-                  name: auseenddate
-                  valueDate: 2999-01-01T00:00:00
-              - column:
-                  name: auselanguage
-              - column:
-                  name: ausetheme
-              - column:
-                  name: auseisoptionnotallowed
-                  value: '0'
-              - column:
-                  name: ausepwdexpirationdate
-              - column:
-                  name: auselastpasswordupdate
-              - column:
-                  name: ausefailedaccess
-              - column:
-                  name: auselastaccessdate
-              - column:
-                  name: auseunlockdate
-              - column:
-                  name: ausegender
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-              - column:
-                  name: auseaccessiblemode
+        - loadData:
+            file: ../data/auser.csv
+            relativeToChangelogFile: true
             tableName: auser
-        - insert:
-            columns:
-              - column:
-                  name: auseid
-                  valueNumeric: !!float '1'
-              - column:
-                  name: auseid_acom
-                  valueNumeric: !!float '1'
-              - column:
-                  name: auseid_tuse
-                  valueNumeric: !!float '1'
-              - column:
-                  name: ausesurname
-                  value: admin
-              - column:
-                  name: ausename
-                  value: admin
-              - column:
-                  name: ausetaxcode
-              - column:
-                  name: ausebirthdate
-              - column:
-                  name: auseemail
-              - column:
-                  name: auseusername
-                  value: admin
-              - column:
-                  name: ausepwd
-                  value: password
-              - column:
-                  name: ausepwdalg
-                  value: NONE
-              - column:
-                  name: ausestartdate
-                  valueDate: 1800-01-01T00:00:00
-              - column:
-                  name: auseenddate
-                  valueDate: 2999-01-01T00:00:00
-              - column:
-                  name: auselanguage
-              - column:
-                  name: ausetheme
-              - column:
-                  name: auseisoptionnotallowed
-                  value: '0'
-              - column:
-                  name: ausepwdexpirationdate
-              - column:
-                  name: auselastpasswordupdate
-              - column:
-                  name: ausefailedaccess
-              - column:
-                  name: auselastaccessdate
-              - column:
-                  name: auseunlockdate
-              - column:
-                  name: ausegender
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-              - column:
-                  name: auseaccessiblemode
-            tableName: auser
+            usePreparedStatements: true
+            separator: ","
   - changeSet:
       id: 1663346924887-7
       author: alessandro.modolo (generated)
@@ -1664,7 +1605,7 @@ databaseChangeLog:
             maxValue: 9223372036854775807
             minValue: 1
             sequenceName: sauser
-            startValue: 1
+            startValue: 2
   - changeSet:
       id: 1663346924887-73
       author: alessandro.modolo (generated)
@@ -1833,7 +1774,7 @@ databaseChangeLog:
             maxValue: 9223372036854775807
             minValue: 1
             sequenceName: stuser
-            startValue: 1
+            startValue: 2
   - changeSet:
       id: 1663346924887-86
       author: alessandro.modolo (generated)
@@ -2466,703 +2407,42 @@ databaseChangeLog:
       id: 1663346924887-101
       author: alessandro.modolo (generated)
       changes:
-        - insert:
-            columns:
-              - column:
-                  name: acomid
-                  valueNumeric: !!float '0'
-              - column:
-                  name: acomdescription
-                  value: admin
-              - column:
-                  name: acomcompanyname
-                  value: admin
-              - column:
-                  name: acomlogin
-                  value: admin
-              - column:
-                  name: acomisactive
-                  value: '1'
-              - column:
-                  name: acompackage
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
+        - loadData:
+            file: ../data/acompany.csv
+            relativeToChangelogFile: true
             tableName: acompany
-        - insert:
-            columns:
-              - column:
-                  name: acomid
-                  valueNumeric: !!float '1'
-              - column:
-                  name: acomdescription
-                  value: Foundation
-              - column:
-                  name: acomcompanyname
-                  value: foundation
-              - column:
-                  name: acomlogin
-                  value: company
-              - column:
-                  name: acomisactive
-                  value: '1'
-              - column:
-                  name: acompackage
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-            tableName: acompany
+            usePreparedStatements: true
+            separator: ","
   - changeSet:
       id: 1663346924887-102
       author: alessandro.modolo (generated)
       changes:
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20200804'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.197093
+        - loadData:
+            file: ../data/alevel.csv
+            relativeToChangelogFile: true
             tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.base
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20200804'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.511435
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.mm
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20200804'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.654082
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.ws
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20200804'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.691675
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20200805'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.74795
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '12'
-              - column:
-                  name: alevseq
-                  value: '20210517'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.757528
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '17'
-              - column:
-                  name: alevseq
-                  value: '20210207'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.772421
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.base
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '31'
-              - column:
-                  name: alevseq
-                  value: '20220311'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.785191
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '41'
-              - column:
-                  name: alevseq
-                  value: '20220630'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.8351
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.mm
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '1'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '52'
-              - column:
-                  name: alevseq
-                  value: '20220901'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.85364
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.base
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '2'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '18'
-              - column:
-                  name: alevseq
-                  value: '20220304'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.863635
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.securitylog
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '2'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '26'
-              - column:
-                  name: alevseq
-                  value: '20220617'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.898678
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '2'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '27'
-              - column:
-                  name: alevseq
-                  value: '20220713'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.91691
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '2'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '30'
-              - column:
-                  name: alevseq
-                  value: '20220807'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.932874
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.base
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '9'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '3'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20220118'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.941134
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '10'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20210505'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.952228
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '10'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20211122'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.968279
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.core
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '10'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20220111'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:34.993831
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.base
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '10'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20220208'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:35.003053
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.base
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '10'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20220310'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:35.02595
-            tableName: alevel
-        - insert:
-            columns:
-              - column:
-                  name: alevpkg
-                  value: geocall.base
-              - column:
-                  name: alevmaj
-                  valueNumeric: !!float '10'
-              - column:
-                  name: alevmin
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevpatch
-                  valueNumeric: !!float '0'
-              - column:
-                  name: alevseq
-                  value: '20220516'
-              - column:
-                  name: alevdate
-                  valueDate: 2022-09-16T18:47:35.047701
-            tableName: alevel
+            usePreparedStatements: true
+            separator: ","
   - changeSet:
       id: 1663346924887-103
       author: alessandro.modolo (generated)
       changes:
-        - insert:
-            columns:
-              - column:
-                  name: autfid_tuse
-                  valueNumeric: !!float '0'
-              - column:
-                  name: autfname
-                  value: modulobase.utenti.visita
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
+        - loadData:
+            file: ../data/ausertypefunction.csv
+            relativeToChangelogFile: true
             tableName: ausertypefunction
-        - insert:
-            columns:
-              - column:
-                  name: autfid_tuse
-                  valueNumeric: !!float '0'
-              - column:
-                  name: autfname
-                  value: modulobase.tabelletipi.visita
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-            tableName: ausertypefunction
-        - insert:
-            columns:
-              - column:
-                  name: autfid_tuse
-                  valueNumeric: !!float '0'
-              - column:
-                  name: autfname
-                  value: modulobase.anagrafichebase.visita
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-            tableName: ausertypefunction
-        - insert:
-            columns:
-              - column:
-                  name: autfid_tuse
-                  valueNumeric: !!float '0'
-              - column:
-                  name: autfname
-                  value: geocall.amministrazione.gestioneutente
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-            tableName: ausertypefunction
-        - insert:
-            columns:
-              - column:
-                  name: autfid_tuse
-                  valueNumeric: !!float '1'
-              - column:
-                  name: autfname
-                  value: modulobase.utenti.visita
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-            tableName: ausertypefunction
-        - insert:
-            columns:
-              - column:
-                  name: autfid_tuse
-                  valueNumeric: !!float '1'
-              - column:
-                  name: autfname
-                  value: modulobase.tabelletipi.visita
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-            tableName: ausertypefunction
-        - insert:
-            columns:
-              - column:
-                  name: autfid_tuse
-                  valueNumeric: !!float '1'
-              - column:
-                  name: autfname
-                  value: modulobase.anagrafichebase.visita
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-            tableName: ausertypefunction
-        - insert:
-            columns:
-              - column:
-                  name: autfid_tuse
-                  valueNumeric: !!float '1'
-              - column:
-                  name: autfname
-                  value: geocall.amministrazione.gestioneutente
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-            tableName: ausertypefunction
+            usePreparedStatements: true
+            separator: ","
   - changeSet:
       id: 1663346924887-104
       author: alessandro.modolo (generated)
       changes:
-        - insert:
-            columns:
-              - column:
-                  name: tuseid
-                  valueNumeric: !!float '0'
-              - column:
-                  name: tuseid_acom
-                  valueNumeric: !!float '0'
-              - column:
-                  name: tusedescription
-                  value: admin
-              - column:
-                  name: tuseordering
-                  valueNumeric: !!float '1'
-              - column:
-                  name: tuseisactive
-                  value: '1'
-              - column:
-                  name: tusecode
-              - column:
-                  name: tusemaxinactiveinterval
-              - column:
-                  name: tusersauth
-              - column:
-                  name: tuseissuper
-                  value: '1'
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-              - column:
-                  name: tuseiscompanyadmin
-                  value: '0'
+        - loadData:
+            file: ../data/tuser.csv
+            relativeToChangelogFile: true
             tableName: tuser
-        - insert:
-            columns:
-              - column:
-                  name: tuseid
-                  valueNumeric: !!float '1'
-              - column:
-                  name: tuseid_acom
-                  valueNumeric: !!float '1'
-              - column:
-                  name: tusedescription
-                  value: admin
-              - column:
-                  name: tuseordering
-                  valueNumeric: !!float '1'
-              - column:
-                  name: tuseisactive
-                  value: '1'
-              - column:
-                  name: tusecode
-              - column:
-                  name: tusemaxinactiveinterval
-              - column:
-                  name: tusersauth
-              - column:
-                  name: tuseissuper
-                  value: '1'
-              - column:
-                  name: datastamp
-              - column:
-                  name: login
-              - column:
-                  name: action
-              - column:
-                  name: tuseiscompanyadmin
-                  value: '0'
-            tableName: tuser
+            usePreparedStatements: true
+            separator: ","
   - changeSet:
       id: 1663346924887-105
       author: alessandro.modolo (generated)

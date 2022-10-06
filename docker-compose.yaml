@@ -20,12 +20,12 @@ services:
       - postgres
     command:
       --url jdbc:postgresql://postgres:5432/db
-      --changeLogFile db.changelog-root.yaml
+      --changeLogFile changelog/db.changelog-root.yaml
       --username postgres
       --password password
       update
     volumes:
-      - ./changelog:/liquibase/changelog
+      - ./liquibase:/liquibase/changelog
 
   redis:
     image: "redis"

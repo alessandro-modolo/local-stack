@@ -1,0 +1,9 @@
+autfid_tuse,autfname,datastamp,login,action
+0,modulobase.utenti.visita,,,
+0,modulobase.tabelletipi.visita,,,
+0,modulobase.anagrafichebase.visita,,,
+0,geocall.amministrazione.gestioneutente,,,
+1,modulobase.utenti.visita,,,
+1,modulobase.tabelletipi.visita,,,
+1,modulobase.anagrafichebase.visita,,,
+1,geocall.amministrazione.gestioneutente,,,
